@@ -1,6 +1,10 @@
 import random
 import msvcrt
+from time import sleep 
 from rich import print
+from nava import play, stop
+
+
 
 def esperar_tecla(mensagem):
     print(f'[bold blue] {mensagem}')
@@ -373,11 +377,14 @@ def manifestacao_sobrenatural(pistas, ato):
 # FLUXO PRINCIPAL DO PROGRAMA
 # ==========================================
 
+musica = play('musica-menu.wav', async_mode=True, loop=True)
 print('Jogo Teste\n')
-print('Menu\n1 - Novo Jogo \n2 - Carregar Save \n3 - Sair')
+print('Menu\n1 - Começar Jogo \n2 - DLC \n3 - Sair')
 
 try:
     menu = int(input('Digite o número da sua escolha\nR: '))
+    sleep(2)
+    stop(musica)
 except ValueError:
     menu = 3
 
